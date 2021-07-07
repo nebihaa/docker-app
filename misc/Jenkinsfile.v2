@@ -6,13 +6,10 @@ node {
      commit_id = readFile('.git/commit_id').trim()
    }
    stage('test') {
-     def myTestContainer = docker.image('node:4.6')
-     myTestContainer.pull()
-     myTestContainer.inside
-     {
+   bat "docker image pull node:4.6"
+   bat " docker container run --name node-con "
        bat " npm install --only=dev "
-       bat " npm test "
-     }
+       bat " npm test " 
    }
    stage('test with a DB') {
      def mysql = docker.image('mysql').run("-e MYSQL_ALLOW_EMPTY_PASSWORD=yes") 
