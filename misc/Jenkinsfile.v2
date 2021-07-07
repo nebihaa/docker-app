@@ -7,7 +7,7 @@ node {
    }
    stage('test') {
    bat "docker image pull node:4.6"
-   bat " docker container run --name node-con "
+   bat " docker container run --name node-con node:4.6 "
        bat " npm install --only=dev "
        bat " npm test " 
    }
