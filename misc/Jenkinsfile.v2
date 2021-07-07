@@ -9,7 +9,7 @@ node {
      def myTestContainer = docker.image('node:4.6')
      myTestContainer.pull()
      myTestContainer.inside {
-       echo $PATH
+       env.PATH="${env.NODEJS_HOME};${env.PATH}"
        bat " npm install --only=dev "
        bat " npm test "
      }
