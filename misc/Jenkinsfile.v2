@@ -9,7 +9,7 @@ node {
    def myTestContainer = docker.image('node:4.6')
    myTestContainer.pull()
    myTestContainer.inside {
-    bat " nebihaa/docker-app/blob/master npm install --only=dev " 
+    bat " npm install --only=dev " 
     bat " npm test " }
    
    }
