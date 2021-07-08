@@ -6,11 +6,11 @@ node {
      commit_id = readFile('.git/commit_id').trim()
    }
    stage('test') {
-   def myTestContainer = docker.image('node:4.6')
-   myTestContainer.pull()
-   myTestContainer.inside {
-   bat " npm install --only=dev " 
-   bat " npm test " }
+   def myTestContainer = docker.build('Dockerfile')
+  // myTestContainer.pull()
+  // myTestContainer.inside {
+  // bat " npm install --only=dev " 
+   // bat " npm test " }
    
    }
    stage('test with a DB') {
