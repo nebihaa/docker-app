@@ -6,7 +6,7 @@ node {
      commit_id = readFile('.git/commit_id').trim()
    }
    stage('test') {
-   def myTestContainer = docker.build('Dockerfile')
+   def myTestContainer = docker.build('./Dockerfile')
   // myTestContainer.pull()
   // myTestContainer.inside {
   // bat " npm install --only=dev " 
