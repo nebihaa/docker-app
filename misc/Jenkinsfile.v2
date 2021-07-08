@@ -21,7 +21,7 @@ node {
        //   bat 'npm install --only=dev' 
         //  bat 'npm test'                     
      //}                                   
-     mysql.stop()
+     //mysql.stop()
    }                                     
    stage('docker build') {            
      docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
