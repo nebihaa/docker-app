@@ -8,14 +8,15 @@ node {
    
       stage('test') {
   // def myTestContainer = docker.image('nebiha11/node:1.0')
-   def myTestContainer = docker.image('node:4.6').run()
+     def myTestContainer = docker.image('node:4.6').run()
    //myTestContainer.pull()
    }
   
    
    stage('test with a DB') {
      def mysql = docker.image('mysql').run("-e MYSQL_ALLOW_EMPTY_PASSWORD=yes ")
-         myTestContainer.pull()
+        // myTestContainer.pull()
+         myTestContainer = docker.image('node:4.6').run()
          myTestContainer.inside("--link ${mysql.id}:mysql") 
 
                                       
