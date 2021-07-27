@@ -10,8 +10,8 @@ node {
    def myTestContainer = docker.image('node:4.6')
    myTestContainer.pull()
    myTestContainer.inside()  
-        //  bat 'npm install --only=dev' 
-          //bat 'npm test'
+         bat 'npm install --only=dev' 
+         bat 'npm test'
           
    
    }
@@ -22,8 +22,8 @@ node {
      def myTestContainer = docker.image('node:4.6')
      myTestContainer.pull()
        myTestContainer.inside("--link ${mysql.id}:mysql") 
-       //   bat 'npm install --only=dev' 
-        //  bat 'npm test'                     
+          bat 'npm install --only=dev' 
+          bat 'npm test'                     
                                       
      mysql.stop()
      }
