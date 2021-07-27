@@ -7,11 +7,9 @@ node {
    }
    
       stage('test') {
-   def myTestContainer = docker.image('node:4.6')
+   def myTestContainer = docker.image('nebiha11/node:1.0')
    myTestContainer.pull()
-   bat 'npm install --only=dev '
-   bat 'npm test'
-   // myTestContainer = dockerimage()
+ 
         
   
    
