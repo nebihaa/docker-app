@@ -7,8 +7,9 @@ node {
    }
    
       stage('test') {
-   def myTestContainer = docker.image('nebiha11/node:1.0')
-   myTestContainer.pull()
+  // def myTestContainer = docker.image('nebiha11/node:1.0')
+   def myTestContainer = docker.image('node:4.6').run()
+   //myTestContainer.pull()
    }
   
    
