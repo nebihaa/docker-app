@@ -8,7 +8,7 @@ node {
    
 stage('test') {
      def myTestContainer = docker.image('node:4.6').run()
-     //myTestContainer.pull()
+     myTestContainer.pull()
     
    }
    stage('test with a DB') {
