@@ -14,7 +14,7 @@ node {
   
    
    stage('test with a DB') {
-     def mysql = docker.image('mysql').run("bat '-e MYSQL_ALLOW_EMPTY_PASSWORD=yes' ")
+     def mysql = docker.image('mysql').run("-e MYSQL_ALLOW_EMPTY_PASSWORD=yes ")
        //  myTestContainer.pull()
         // myTestContainer.inside("--link ${mysql.id}:mysql") 
 
