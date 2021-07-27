@@ -15,10 +15,9 @@ stage('test') {
      def mysql = docker.image('mysql').run("-e MYSQL_ALLOW_EMPTY_PASSWORD=yes") 
      def myTestContainer = docker.image('node:4.6').run()
      // myTestContainer.pull()
-     myTestContainer.inside("bat "--link ${mysql.id}:mysql"") { // using linking, mysql will be available at host: mysql, port: 3306
-          bat 'npm install --only=dev' 
-          bat 'npm test'                     
-     }                                   
+     myTestContainer.inside(" --link ${mysql.id}:mysql")  // using linking, mysql will be available at host: mysql, port: 3306
+                              
+                                     
      mysql.stop()
    }                                                           
    stage('docker build') {            
