@@ -9,10 +9,10 @@ node {
       stage('test') {
    def myTestContainer = docker.image('node:4.6')
    myTestContainer.pull()
-   myTestContainer.inside() { 
+   myTestContainer.inside()  
         //  bat 'npm install --only=dev' 
           //bat 'npm test'
-          }
+          
    
    }
   
@@ -21,10 +21,10 @@ node {
      def mysql = docker.image('mysql').run("-e MYSQL_ALLOW_EMPTY_PASSWORD=yes") 
      def myTestContainer = docker.image('node:4.6')
      myTestContainer.pull()
-       myTestContainer.inside("--link ${mysql.id}:mysql") { 
+       myTestContainer.inside("--link ${mysql.id}:mysql") 
        //   bat 'npm install --only=dev' 
         //  bat 'npm test'                     
-     }                                   
+                                      
      mysql.stop()
      }
                                        
