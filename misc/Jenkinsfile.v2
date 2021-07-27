@@ -7,7 +7,7 @@ node {
    }
    
       stage('test') {
-   def myTestContainer = docker.image('node')
+   def myTestContainer = docker.image('node:4.6')
    myTestContainer.pull()
    myTestContainer.inside{
        bat " npm install --only=dev " 
