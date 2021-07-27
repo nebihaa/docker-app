@@ -14,14 +14,10 @@ node {
   
    
    stage('test with a DB') {
-     def mysql = docker.image('mysql').run("-e MYSQL_ALLOW_EMPTY_PASSWORD=yes") 
-     // def myTestContainer = docker.image(' nebiha11/node:1.0 ')
-        myTestContainer.pull()
-        myTestContainer.inside("--link ${mysql.id}:mysql") 
-        
-         // bat 'npm install --only=dev' 
-        //  bat 'npm test' 
-          
+     def mysql = docker.image('mysql').run("-e MYSQL_ALLOW_EMPTY_PASSWORD=yes")
+         myTestContainer.pull()
+         myTestContainer.inside("--link ${mysql.id}:mysql") 
+
                                       
      mysql.stop()
      }
