@@ -7,7 +7,8 @@ node {
    }
    
 stage('test') {
- def image = docker.image(node:4.6).run()
+ def myTestContainer = docker.image('node:4.6').run()
+ 
     
      
 
