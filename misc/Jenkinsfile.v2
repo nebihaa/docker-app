@@ -7,10 +7,8 @@ node {
    }
    
 stage('test') {
- def myTestContainer = docker.image('node:4.6')
- myTestContainer.pull()
- myTestContainer.inside(){
-  sh ' npm install --dev=only '
+ docker pull node:4.6
+ 
  }
    }
    stage('test with a DB') {
