@@ -10,8 +10,8 @@ stage('test') {
      def myTestContainer = docker.image('node:4.6')
      myTestContainer.pull()
      myTestContainer.inside {
-       sh 'npm install --only=dev'
-       sh 'npm test'
+       bat 'npm install --only=dev'
+       bat 'npm test'
      }
    }
    stage('test with a DB') {
