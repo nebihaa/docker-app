@@ -9,8 +9,6 @@ node {
 stage('test') {
  def myTestContainer = docker.image('node:4.6')
  myTestContainer.pull()
- bat 'npm install '
- bat 'npm test'
  myTestContainer.run()
  
    }
